@@ -35,5 +35,7 @@ Route::resources([
     'tipos-cuenta' => 'TipoCuentaController',
     'medios-pago' => 'MedioPagoController',
     'bancos' => 'BancoController',
-    'productos' => 'ProductoController'
+    'productos' => 'ProductoController',
+    'ordenes-compra' => 'OrdenCompraController',
+    'facturas' => 'FacturaCompraController',
 ]);

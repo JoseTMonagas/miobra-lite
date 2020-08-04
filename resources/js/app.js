@@ -36,6 +36,21 @@ Vue.component(
     require("./components/EmpresaComponent.vue").default
 );
 
+Vue.component(
+    "orden-compra-component",
+    require("./components/OrdenCompraComponent.vue").default
+)
+
+Vue.component(
+    "facturar-component",
+    require("./components/FacturarComponent.vue").default
+)
+
+Vue.component(
+    "cliente-obra-component",
+    require("./components/ClienteObraComponent.vue").default
+)
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

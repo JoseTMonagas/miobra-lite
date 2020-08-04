@@ -46,4 +46,9 @@ class Obra extends Model
         return $this->belongsTo('App\EstadoObra');
     }
 
+    public function generarPdf()
+    {
+
+    }
+
 }

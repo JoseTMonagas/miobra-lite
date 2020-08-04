@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCuentasTable extends Migration
+class CreateOrdenComprasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateCuentasTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuentas', function (Blueprint $table) {
+        Schema::create('orden_compras', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('tipo_cuenta_id');
-
-            $table->string('nombre');
-
-            $table->softDeletes();
+            $table->foreignId('proveedor_id')->constained();
+            $table->foreignId('obra_id')->constrained();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateCuentasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuentas');
+        Schema::dropIfExists('orden_compras');
     }
 }

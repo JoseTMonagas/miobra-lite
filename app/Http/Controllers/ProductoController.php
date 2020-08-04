@@ -16,7 +16,7 @@ class ProductoController extends Controller
     {
         $productos = Producto::all();
 
-        return view('control/producto/index')->with(compact('producto'));
+        return view('control/producto/index')->with(compact('productos'));
     }
 
     /**
@@ -43,7 +43,7 @@ class ProductoController extends Controller
         if ($continue) {
             return redirect()->back()->with(compact('producto'));
         } else {
-            return redirect()->route('productos.index')->with(compact('cuenta'));
+            return redirect()->route('productos.index')->with(compact('producto'));
         }
     }
 

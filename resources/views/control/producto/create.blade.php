@@ -4,7 +4,7 @@
     <v-card>
         <v-card-title>Crear producto</v-card-title>
         <v-card-text>
-            <form method="POST" action="{{ route('producto.store') }}">
+            <form method="POST" action="{{ route('productos.store') }}">
                 @csrf
 
                 <div class="form-group">

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CuentaForm extends FormRequest
+class OrdenCompraForm extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,12 @@ class CuentaForm extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
-            'tipo_cuenta_id' => 'required|exists:tipo_cuentas,id',
-            'continue' => 'sometimes|integer'
+            'obra_id' => 'required|exists:obras,id',
+            'productos' => 'required|array|min:1',
+            'productos.*.producto_id' => 'required|exists:productos,id',
+            'productos.*.cuenta_id' => 'required|exists.cuentas,id',
+            'productos.*.cantidad' => 'required|integer',
+            'productos.*.precio' => 'required|integer',
         ];
     }
 }

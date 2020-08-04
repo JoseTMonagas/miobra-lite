@@ -21,4 +21,9 @@ class Producto extends Model
     {
         return route('productos.destroy', $this->id);
     }
+
+    public function ordenesCompra()
+    {
+        return $this->belongsToMany('App\OrdenCompra')->withPivot(['cantidad', 'precio', 'cuenta_id']);
+    }
 }

@@ -25,7 +25,8 @@ class ProductoForm extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'codigo' => 'required'
+            'codigo' => 'required',
+            'continue' => 'sometimes|integer'
         ];
     }
 }

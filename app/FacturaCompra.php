@@ -5,25 +5,24 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TipoCuenta extends Model
+class FacturaCompra extends Model
 {
     use SoftDeletes;
 
     protected $appends = ['editRoute', 'deleteRoute'];
-    protected $fillable = ['nombre'];
 
     public function getEditRouteAttribute()
     {
-        return route('tipos-cuenta.edit', $this->id);
+        return route('facturas.edit', $this->id);
     }
 
     public function getDeleteRouteAttribute()
     {
-        return route('tipos-cuenta.destroy', $this->id);
+        return route('facturas.destroy', $this->id);
     }
 
-    public function cuentas()
+    public function facturable()
     {
-        return $this->hasMany('App\Cuenta');
+        return $this->morphTo();
     }
 }

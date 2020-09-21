@@ -6,7 +6,7 @@
             dense
             v-model="selectedClient"
             :items="clientes"
-            item-text="nombre"
+            item-text="razon_social"
             item-value="id"
             label="Seleccione cliente"
         ></v-autocomplete>
@@ -34,7 +34,7 @@ export default {
         }
     },
     computed: {
-        obraFiltered() {
+        obrasFiltered() {
             if (this.obras.length > 0) {
                 return this.obras.filter(
                     (obra) => obra.cliente_id == this.selectedClient
@@ -65,10 +65,8 @@ export default {
     methods: {
         getData() {
             axios.get(this.getRoute).then(resp => {
-                if (resp.statusCode == 200) {
-                    this.clientes = resp.data.clientes;
-                    this.obras = resp.data.obras;
-                }
+                this.clientes = resp.data.clientes;
+                this.obras = resp.data.obras;
             })
         }
     },

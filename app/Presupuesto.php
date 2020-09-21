@@ -9,6 +9,8 @@ class Presupuesto extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ["obra_id"];
+
     protected $appends = ['editRoute', 'deleteRoute'];
 
     public function getEditRouteAttribute()

@@ -17,6 +17,6 @@ class GetClienteObraController extends Controller
         $clientes = \App\Cliente::all();
         $obras = \App\Obra::all();
 
-        return response()->json([$clientes, $obras]);
+        return response()->json(["clientes" => $clientes, "obras" => $obras]);
     }
 }

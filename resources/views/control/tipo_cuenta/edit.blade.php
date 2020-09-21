@@ -16,8 +16,7 @@
                     @enderror
                 </div>
 
-                <button type="submit" name="continue" value="0" class="btn btn-primary">Guardar y Salir</button>
-                <button type="submit" name="continue" value="1" class="btn btn-primary">Guardar y Continuar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
         </v-card-text>
     </v-card>

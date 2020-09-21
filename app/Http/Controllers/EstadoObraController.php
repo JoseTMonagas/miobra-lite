@@ -41,9 +41,9 @@ class EstadoObraController extends Controller
         $continue = $request->validated()['continue'];
 
         if ($continue) {
-            return redirect()->back()->with(compact(''));
+            return redirect()->back()->with(compact('estadoObra'));
         } else {
-            return redirect()->route('estados-obras.index')->with(compact('estadoObra'));
+            return redirect()->route('estados-obra.index')->with(compact('estadoObra'));
         }
     }
 
@@ -64,8 +64,9 @@ class EstadoObraController extends Controller
      * @param  \App\EstadoObra  $estadoObra
      * @return \Illuminate\Http\Response
      */
-    public function edit(EstadoObra $estadoObra)
+    public function edit(EstadoObra $estadosObra)
     {
+        $estadoObra = $estadosObra;
         return view('control/estado_obra/edit')->with(compact('estadoObra'));
     }
 
@@ -76,11 +77,11 @@ class EstadoObraController extends Controller
      * @param  \App\EstadoObra  $estadoObra
      * @return \Illuminate\Http\Response
      */
-    public function update(GenericTypeForm $request, EstadoObra $estadoObra)
+    public function update(GenericTypeForm $request, EstadoObra $estadosObra)
     {
-        $estadoObra = $estadoObra->update($request->validated());
+        $estadoObra = $estadosObra->update($request->validated());
 
-        return redirect()->route('estado-obras.index')->with(compact('estadoObra'));
+        return redirect()->route('estados-obra.index')->with(compact('estadoObra'));
     }
 
     /**

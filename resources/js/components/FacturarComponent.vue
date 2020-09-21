@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <cliente-obra-component @obra-changed="selectedObra = $event"></cliente-obra-component>
+                <cliente-obra-component :getRoute="getRoute" @obra-changed="selectedObra = $event"></cliente-obra-component>
             </div>
         </div>
         <div class="row">
@@ -144,6 +144,10 @@ export default {
             required: true,
         },
         storeRoute: {
+            type: String,
+            required: true
+        },
+        getRoute: {
             type: String,
             required: true
         }

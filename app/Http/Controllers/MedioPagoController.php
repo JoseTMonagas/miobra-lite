@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GenericTypeForm;
 use App\MedioPago;
 use Illuminate\Http\Request;
 
@@ -64,8 +65,9 @@ class MedioPagoController extends Controller
      * @param  \App\MedioPago  $medioPago
      * @return \Illuminate\Http\Response
      */
-    public function edit(MedioPago $medioPago)
+    public function edit(MedioPago $mediosPago)
     {
+        $medioPago = $mediosPago;
         return view('control/medio_pago/edit')->with(compact('medioPago'));
     }
 
@@ -76,9 +78,9 @@ class MedioPagoController extends Controller
      * @param  \App\MedioPago  $medioPago
      * @return \Illuminate\Http\Response
      */
-    public function update(GenericTypeForm $request, MedioPago $medioPago)
+    public function update(GenericTypeForm $request, MedioPago $mediosPago)
     {
-        $medioPago = $medioPago->update($request->validated());
+        $medioPago = $mediosPago->update($request->validated());
 
         return redirect()->route('medios-pago.index')->with(compact('medioPago'));
     }

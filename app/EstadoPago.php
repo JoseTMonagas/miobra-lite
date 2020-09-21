@@ -9,7 +9,7 @@ class EstadoPago extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['porcentaje', 'descripcion', 'monto', 'fecha_emision', 'fecha_pago'];
+    protected $fillable = ['porcentaje', 'descripcion', 'monto', 'fecha_emision', 'fecha_pago', 'obra_id'];
     protected $appends = ['editRoute', 'deleteRoute'];
 
     public function getEditRouteAttribute()

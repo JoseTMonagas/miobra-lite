@@ -9,7 +9,7 @@ class Cliente extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ["razon_social", "rut", "comuna"];
+    protected $fillable = ['razon_social', 'giro', 'rut', 'comuna', 'direccion', 'telefono', 'correo'];
     protected $appends = ["editRoute", "deleteRoute"];
 
     public function getEditRouteAttribute()

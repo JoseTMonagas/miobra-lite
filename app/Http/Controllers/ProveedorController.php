@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Proveedor;
 use App\Http\Requests\ProovedorForm;
+use App\Http\Requests\ProveedorForm;
 use Illuminate\Http\Request;
 
 class ProveedorController extends Controller
@@ -65,8 +66,9 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(Proveedor $proveedore)
     {
+        $proveedor = $proveedore;
         return view('control/proveedor/edit')->with(compact('proveedor'));
     }
 
@@ -77,9 +79,9 @@ class ProveedorController extends Controller
      * @param  \App\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(ProveedorForm $request, Proveedor $proveedor)
+    public function update(ProveedorForm $request, Proveedor $proveedore)
     {
-        $proveedor = $proveedor->update($request->validated());
+        $proveedor = $proveedore->update($request->validated());
 
         return redirect()->route('proveedores.index')->with(compact('proveedor'));
     }

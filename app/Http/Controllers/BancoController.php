@@ -44,7 +44,7 @@ class BancoController extends Controller
         if ($continue) {
             return redirect()->back()->with(compact('banco'));
         } else {
-            return redirect()->route('bancos.index')->with(compact('cuenta'));
+            return redirect()->route('bancos.index')->with(compact('banco'));
         }
     }
 

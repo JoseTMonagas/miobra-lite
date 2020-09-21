@@ -7,7 +7,7 @@
                 dense
                 v-model="selectedClient"
                 :items="clientes"
-                item-text="nombre"
+                item-text="razon_social"
                 item-value="id"
                 label="Seleccione cliente"
             ></v-autocomplete>
@@ -98,7 +98,7 @@ export default {
         }
     },
     computed: {
-        obraFiltered() {
+        obrasFiltered() {
             return this.obras.filter(
                 (obra) => obra.cliente_id == this.selectedClient
             );
@@ -129,7 +129,7 @@ export default {
             }
 
             this.items.push(this.form);
-            this.form.assign({}, form);
+            this.form = form;
         },
         clear() {
             const form = {
@@ -137,7 +137,7 @@ export default {
                 costo: null,
                 neto: null,
             };
-            this.form.assign({}, form);
+            this.form = form;
             this.selectedClient = null;
             this.selectedObra = null;
             this.items = []
@@ -154,8 +154,13 @@ export default {
             })
         },
         getCuentaName(cuentaId) {
-            var cuenta = this.cuentas.find(cuenta => cuenta.cuenta_id == cuentaId);
-            return cuenta.nombre;
+            var result = this.cuentas.filter((cuenta) => {return cuenta.id == cuentaId})
+
+            if (result.length > 0) {
+                return result[0].nombre;
+            } else {
+                return 'Not found';
+            }
         }
     },
 };

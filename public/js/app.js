@@ -1943,7 +1943,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    obraFiltered: function obraFiltered() {
+    obrasFiltered: function obrasFiltered() {
       var _this = this;
 
       if (this.obras.length > 0) {
@@ -1979,10 +1979,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get(this.getRoute).then(function (resp) {
-        if (resp.statusCode == 200) {
-          _this2.clientes = resp.data.clientes;
-          _this2.obras = resp.data.obras;
-        }
+        _this2.clientes = resp.data.clientes;
+        _this2.obras = resp.data.obras;
       });
     }
   }
@@ -2098,7 +2096,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    obraFiltered: function obraFiltered() {
+    obrasFiltered: function obrasFiltered() {
       var _this = this;
 
       return this.obras.filter(function (obra) {
@@ -2133,7 +2131,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.items.push(this.form);
-      this.form.assign({}, form);
+      this.form = form;
     },
     clear: function clear() {
       var form = {
@@ -2141,7 +2139,7 @@ __webpack_require__.r(__webpack_exports__);
         costo: null,
         neto: null
       };
-      this.form.assign({}, form);
+      this.form = form;
       this.selectedClient = null;
       this.selectedObra = null;
       this.items = [];
@@ -2163,10 +2161,15 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getCuentaName: function getCuentaName(cuentaId) {
-      var cuenta = this.cuentas.find(function (cuenta) {
-        return cuenta.cuenta_id == cuentaId;
+      var result = this.cuentas.filter(function (cuenta) {
+        return cuenta.id == cuentaId;
       });
-      return cuenta.nombre;
+
+      if (result.length > 0) {
+        return result[0].nombre;
+      } else {
+        return 'Not found';
+      }
     }
   }
 });
@@ -2519,6 +2522,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true
     },
     storeRoute: {
+      type: String,
+      required: true
+    },
+    getRoute: {
       type: String,
       required: true
     }
@@ -3076,6 +3083,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       required: true
     },
     storeRoute: {
+      type: String,
+      required: true
+    },
+    getRoute: {
       type: String,
       required: true
     }
@@ -38748,7 +38759,7 @@ var render = function() {
           outlined: "",
           dense: "",
           items: _vm.clientes,
-          "item-text": "nombre",
+          "item-text": "razon_social",
           "item-value": "id",
           label: "Seleccione cliente"
         },
@@ -38828,7 +38839,7 @@ var render = function() {
             outlined: "",
             dense: "",
             items: _vm.clientes,
-            "item-text": "nombre",
+            "item-text": "razon_social",
             "item-value": "id",
             label: "Seleccione cliente"
           },
@@ -39348,6 +39359,7 @@ var render = function() {
         { staticClass: "col-md-6" },
         [
           _c("cliente-obra-component", {
+            attrs: { getRoute: _vm.getRoute },
             on: {
               "obra-changed": function($event) {
                 _vm.selectedObra = $event
@@ -40210,7 +40222,7 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _c("ClienteObraComponent"),
+      _c("ClienteObraComponent", { attrs: { getRoute: _vm.getRoute } }),
       _vm._v(" "),
       _c(
         "div",
@@ -96364,15 +96376,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!**********************************************************!*\
   !*** ./resources/js/components/ClienteObraComponent.vue ***!
   \**********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ClienteObraComponent_vue_vue_type_template_id_12070c6c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ClienteObraComponent.vue?vue&type=template&id=12070c6c& */ "./resources/js/components/ClienteObraComponent.vue?vue&type=template&id=12070c6c&");
 /* harmony import */ var _ClienteObraComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ClienteObraComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ClienteObraComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ClienteObraComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ClienteObraComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -96402,7 +96413,7 @@ component.options.__file = "resources/js/components/ClienteObraComponent.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/ClienteObraComponent.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96641,15 +96652,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************!*\
   !*** ./resources/js/components/FacturarComponent.vue ***!
   \*******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FacturarComponent_vue_vue_type_template_id_62ca1c70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FacturarComponent.vue?vue&type=template&id=62ca1c70& */ "./resources/js/components/FacturarComponent.vue?vue&type=template&id=62ca1c70&");
 /* harmony import */ var _FacturarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FacturarComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/FacturarComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _FacturarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _FacturarComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -96679,7 +96689,7 @@ component.options.__file = "resources/js/components/FacturarComponent.vue"
 /*!********************************************************************************!*\
   !*** ./resources/js/components/FacturarComponent.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

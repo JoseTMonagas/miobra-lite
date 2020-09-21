@@ -65,8 +65,9 @@ class TipoCuentaController extends Controller
      * @param  \App\TipoCuenta  $tipoCuenta
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoCuenta $tipoCuenta)
+    public function edit($tipoCuenta)
     {
+        $tipoCuenta = TipoCuenta::find($tipoCuenta);
         return view('control/tipo_cuenta/edit')->with(compact('tipoCuenta'));
     }
 
@@ -77,9 +78,9 @@ class TipoCuentaController extends Controller
      * @param  \App\TipoCuenta  $tipoCuenta
      * @return \Illuminate\Http\Response
      */
-    public function update(GenericTypeForm $request, TipoCuenta $tipoCuenta)
+    public function update(GenericTypeForm $request, $tipoCuenta)
     {
-        $tipoCuenta = $tipoCuenta->update($request->validated());
+        $tipoCuenta = TipoCuenta::find($tipoCuenta)->update($request->validated());
 
         return redirect()->route('tipos-cuenta.index')->with(compact('tipoCuenta'));
     }

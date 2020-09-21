@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCuentaPresupuestoTable extends Migration
+class CreateFacturasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCuentaPresupuestoTable extends Migration
      */
     public function up()
     {
-        Schema::create('cuenta_presupuesto', function (Blueprint $table) {
+        Schema::create('facturas', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('presupuesto_id')->constrained();
-            $table->foreignId('cuenta_id')->constrained();
-            $table->unsignedBigInteger('costo');
-            $table->unsignedBigInteger('neto');
-
+            $table->string('tipo_pago');
+            $table->date("fecha_documento");
+            $table->string("monto");
+            $table->string("folio_documento");
+            $table->foreignId("banco_id")->constrained();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateCuentaPresupuestoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cuenta_presupuesto');
+        Schema::dropIfExists('facturas');
     }
 }

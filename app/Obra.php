@@ -13,7 +13,7 @@ class Obra extends Model
 
     protected $fillable = [
         'nombre', 'estado_obra_id', 'descripcion', 'fecha_inicio',
-        'fecha_termino', 'plazo', 'estado',
+        'fecha_termino', 'plazo', 'cliente_id',
         'trato_tipo', 'trato_ref', 'trato_nombre',
         'contacto_nombre', 'contacto_telefono', 'contacto_correo',
         'responsable_nombre', 'responsable_telefono', 'responsable_correo',

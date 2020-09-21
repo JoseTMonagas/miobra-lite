@@ -4,7 +4,7 @@
     <v-card>
         <v-card-title>Crear nuevo control de pago</v-card-title>
         <v-card-text>
-            <form method="POST" action="{{ route('estados-obra.store') }}">
+            <form method="POST" action="{{ route('controles-pago.store') }}">
                 @csrf
 
                 <div class="form-group">

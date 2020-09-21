@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <ClienteObraComponent></ClienteObraComponent>
+        <ClienteObraComponent :getRoute="getRoute"></ClienteObraComponent>
         <div class="row">
             <v-autocomplete
                 class="col-md-4"
@@ -88,6 +88,10 @@ export default {
             type: String,
             required: true
         },
+        getRoute: {
+            type: String,
+            required: true
+        }
     },
     data() {
         return {

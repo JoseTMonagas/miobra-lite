@@ -15,6 +15,7 @@ class CreateProveedorsTable extends Migration
     {
         Schema::create('proveedors', function (Blueprint $table) {
             $table->id();
+
             $table->string('razon_social');
             $table->string('rut');
             $table->string('direccion');
@@ -22,6 +23,7 @@ class CreateProveedorsTable extends Migration
             $table->string('correo');
             $table->string('telefono');
             $table->string('giro');
+
             $table->softDeletes();
             $table->timestamps();
         });

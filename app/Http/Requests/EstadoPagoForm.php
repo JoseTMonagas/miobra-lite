@@ -30,7 +30,8 @@ class EstadoPagoForm extends FormRequest
             'descripcion' => 'required',
             'monto' => 'required|integer',
             'fecha_emision' => 'required|date',
-            'fecha_pago' => 'required|date'
+            'fecha_pago' => 'required|date',
+            'continue' => 'sometimes|integer',
         ];
     }
 }

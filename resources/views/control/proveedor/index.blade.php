@@ -1,5 +1,7 @@
-@extends('partials.main')
-@section('main')
+@extends('layouts.app')
+
+@section('content')
+
     <v-card class="m-5 p-2">
         <v-card-title>Resumen de Proveedores</v-card-title>
 

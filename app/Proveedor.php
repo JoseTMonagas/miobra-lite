@@ -15,12 +15,12 @@ class Proveedor extends Model
 
     public function getEditRouteAttribute()
     {
-        return route('proovedores.edit', $this->id);
+        return route('proveedores.edit', $this->id);
     }
 
     public function getDeleteRouteAttribute()
     {
-        return route('proovedores.destroy', $this->id);
+        return route('proveedores.destroy', $this->id);
     }
 
 }

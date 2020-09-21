@@ -17,6 +17,8 @@ class CreateOrdenComprasTable extends Migration
             $table->id();
             $table->foreignId('proveedor_id')->constained();
             $table->foreignId('obra_id')->constrained();
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }

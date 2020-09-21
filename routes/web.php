@@ -38,4 +38,6 @@ Route::resources([
     'productos' => 'ProductoController',
     'ordenes-compra' => 'OrdenCompraController',
     'facturas' => 'FacturaCompraController',
+    'cobranzas' => 'FacturaController',
+    'proveedores' => 'ProveedorController',
 ]);

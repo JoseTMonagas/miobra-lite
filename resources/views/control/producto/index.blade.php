@@ -7,7 +7,7 @@
         <v-card-text>
             <v-btn class="mb-2" href="{{ route('productos.create') }}">Crear producto</v-btn>
             <index-component :headers="[
-                { text: 'Codigo', value: 'nombre' },
+                { text: 'Codigo', value: 'codigo' },
                 { text: 'Nombre', value: 'nombre' },
                 { text: 'Acciones', value: 'actions' }
                 ]" :items='@json($productos)'></index-component>

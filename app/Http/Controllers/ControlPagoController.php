@@ -65,8 +65,9 @@ class ControlPagoController extends Controller
      * @param  \App\ControlPago  $controlPago
      * @return \Illuminate\Http\Response
      */
-    public function edit(ControlPago $controlPago)
+    public function edit(ControlPago $controlesPago)
     {
+        $controlPago = $controlesPago;
         return view('control/control_pago/edit')->with(compact('controlPago'));
     }
 

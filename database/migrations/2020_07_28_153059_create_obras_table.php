@@ -17,13 +17,13 @@ class CreateObrasTable extends Migration
             $table->id();
 
             $table->foreignId('cliente_id')->constrained();
+            $table->foreignId('estado_obra_id')->constrained();
 
             $table->string('nombre');
             $table->string('descripcion');
-            $table->date('fecha_inicio');
-            $table->date('fecha_termino');
+            $table->date('fecha_inicio');,
+            'estado_obra_id'           $table->date('fecha_termino');
             $table->unsignedInteger('plazo');
-            $table->unsignedSmallInteger('estado');
             $table->string('trato_tipo');
             $table->string('trato_ref');
             $table->string('trato_nombre');
